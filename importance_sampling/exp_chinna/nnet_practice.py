@@ -63,7 +63,7 @@ predict = theano.function(inputs=[X], outputs=y_x, allow_input_downcast=True)
 get_grad = theano.function(inputs=[X,Y],outputs=[grad_for_norm[0],grad_for_norm[1]], allow_input_downcast=True)
 
 mb_size = 128
-for i in range(10):
+for i in range(100):
     grad_list = []
     for start, end in zip(range(0, len(trX), mb_size), range(mb_size, len(trX), mb_size)):
         cost,grads[0],grads[1] = train(trX[start:end], trY[start:end])
